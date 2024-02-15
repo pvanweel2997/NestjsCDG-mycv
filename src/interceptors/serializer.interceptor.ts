@@ -14,10 +14,10 @@ interface ClassConstructor {
 }
 
 export function Serialize(dto: ClassConstructor) {
-  return UseInterceptors(new SerializeInterceptor(dto));
+  return UseInterceptors(new SerializerInterceptor(dto));
 }
 
-export class SerializeInterceptor implements NestInterceptor {
+export class SerializerInterceptor implements NestInterceptor {
   constructor(private dto: ClassConstructor) {}
   intercept(context: ExecutionContext, handler: CallHandler): Observable<any> {
     return handler.handle().pipe(
