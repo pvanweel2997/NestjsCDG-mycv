@@ -5,6 +5,7 @@ import {
   Max,
   IsLongitude,
   IsLatitude,
+  IsBoolean,
 } from 'class-validator';
 
 export class CreateReportDto {
