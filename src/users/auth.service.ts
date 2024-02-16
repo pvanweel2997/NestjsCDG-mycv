@@ -23,7 +23,7 @@ export class AuthService {
     const hash = <Buffer>await scrypt(password, salt, 32);
 
     const result = salt + '.' + hash.toString('hex');
-    const user = this.userService.create(email, result);
+    const user = await this.userService.create(email, result);
     return user;
   }
 
